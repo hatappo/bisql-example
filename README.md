@@ -133,13 +133,15 @@ LIMIT /*$limit*/100
 OFFSET /*$offset*/0
 ```
 
-## 4. Generate declaration namespaces
+## 4. Generate function namespaces
 
-Because this sample uses ordinary `require` forms in `src/app/core.clj`, generate declaration namespace files after generating CRUD SQL:
+Because this sample uses ordinary `require` forms in `src/app/core.clj`, generate function namespace files after generating CRUD SQL:
 
 ```sh
-clojure -M:bisql gen-declarations
+clojure -M:bisql gen-functions
 ```
+
+If you prefer, you can replace this step and the previous `gen-crud` step with a single `clojure -M:bisql gen-crud-and-functions`.
 
 This writes declaration files such as:
 
@@ -198,7 +200,7 @@ ORDER BY id
 LIMIT /*$limit*/100
 ```
 
-This repository already includes that finished custom template. After you add or change custom SQL files of your own, run `clojure -M:bisql gen-declarations` again so the matching declaration namespace files stay in sync.
+This repository already includes that finished custom template. After you add or change custom SQL files of your own, run `clojure -M:bisql gen-functions` again so the matching function namespace files stay in sync.
 
 ## 7. Execute the custom query
 

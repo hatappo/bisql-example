@@ -1,0 +1,7 @@
+.clj-kondo/
+.cpcache/
+.lsp/
+.classpath
+
+src/sql/**/crud.sql
+src/sql/**/*.clj

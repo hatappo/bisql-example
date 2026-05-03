@@ -1,6 +1,6 @@
 # bisql-example
 
-Small end-to-end example project for Bisql `0.2.1`.
+Small end-to-end example project for Bisql `0.5.0`.
 
 This sample shows a realistic flow:
 
@@ -43,15 +43,20 @@ Create or choose a database, then load the sample schema:
 psql -d bisql_example -f dev/schema.sql
 ```
 
-If your local PostgreSQL uses different credentials, set the usual environment variables:
+Set the Bisql connection environment variables to match your local PostgreSQL
+before running generation or example commands:
 
 ```sh
-export PGHOST=localhost
-export PGPORT=5432
-export PGDATABASE=bisql_example
-export PGUSER=postgres
-export PGPASSWORD=postgres
+export BISQL_HOST=localhost
+export BISQL_PORT=5432
+export BISQL_DBNAME=bisql_example
+export BISQL_USER=<your-local-user>
+export BISQL_PASSWORD=<your-local-password>
 ```
+
+If your local PostgreSQL does not use password authentication, adapt the
+connection settings to your local setup. The Docker option below provides
+copy-pasteable credentials for this example.
 
 ### Option B: Start PostgreSQL with Docker
 
@@ -77,14 +82,15 @@ Or, if `psql` is not installed locally:
 docker exec -i bisql-example-postgres psql -U bisql -d bisql_example < dev/schema.sql
 ```
 
-For the Docker setup, run the example with:
+For the Docker setup, set the Bisql connection environment variables before
+running generation or example commands:
 
 ```sh
-export PGHOST=localhost
-export PGPORT=54329
-export PGDATABASE=bisql_example
-export PGUSER=bisql
-export PGPASSWORD=bisql
+export BISQL_HOST=localhost
+export BISQL_PORT=54329
+export BISQL_DBNAME=bisql_example
+export BISQL_USER=bisql
+export BISQL_PASSWORD=bisql
 ```
 
 ## 2. Define query functions once

@@ -8,11 +8,11 @@
 (def datasource
   (jdbc/get-datasource
    {:dbtype "postgresql"
-    :host (or (System/getenv "PGHOST") "localhost")
-    :port (parse-long (or (System/getenv "PGPORT") "5432"))
-    :dbname (or (System/getenv "PGDATABASE") "bisql_example")
-    :user (or (System/getenv "PGUSER") "postgres")
-    :password (or (System/getenv "PGPASSWORD") "postgres")}))
+    :host (or (System/getenv "BISQL_HOST") "localhost")
+    :port (parse-long (or (System/getenv "BISQL_PORT") "5432"))
+    :dbname (or (System/getenv "BISQL_DBNAME") "bisql_example")
+    :user (or (System/getenv "BISQL_USER") "postgres")
+    :password (or (System/getenv "BISQL_PASSWORD") "postgres")}))
 
 (defn -main
   [& [mode]]

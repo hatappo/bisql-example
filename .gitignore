@@ -3,5 +3,5 @@
 .lsp/
 .classpath
 
-src/sql/**/crud.sql
-src/sql/**/*.clj
+# src/sql/**/crud.sql
+# src/sql/**/*.clj
